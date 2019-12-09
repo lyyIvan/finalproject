@@ -101,6 +101,7 @@ public class gameplaypage extends AppCompatActivity {
         }
         mng.setOnClickListener(unused-> {
             Intent jumpminigame = new Intent(this, minigame.class);
+            //jumpminigame.putExtra("position", currentgamestory);
             startActivity(jumpminigame);
             finish();
         });
