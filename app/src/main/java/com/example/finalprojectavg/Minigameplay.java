@@ -18,6 +18,7 @@ public class Minigameplay extends View {
     private int ghosty;
     private int ghostSpeed;
     private int canvasWidth, canvasHeight;
+    private int score;
 
     private Bitmap downwall;
     private int downwallx = -1000, downwally = -1000, downwallSpeed = 16;
@@ -77,10 +78,13 @@ public class Minigameplay extends View {
 
         if (hitwall(ghostx, ghosty, upwallx, upwally, downwallx, downwally)) {
             canvas.drawText("Score : game over", 200, 60, scorepaint);
-            Intent backavg = new Intent(getContext(),gameplaypage.class);
-            backavg.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
-            getContext().startActivity(backavg);
+            Intent tofinal = new Intent(getContext(),finale.class);
+            tofinal.putExtra("score", score);
+            tofinal.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            getContext().startActivity(tofinal);
             ghostx = -4000;
+        } else {
+            score++;
         }
 
         downwallx -= downwallSpeed;
@@ -103,7 +107,7 @@ public class Minigameplay extends View {
         canvas.drawBitmap(downwall, upwallx, upwally, null);
 
 
-        canvas.drawText("Score : ", 200, 60, scorepaint);
+        canvas.drawText("Score : " + score, 200, 60, scorepaint);
 
 
     }

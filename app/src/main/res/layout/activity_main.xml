@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backg"
     tools:context=".MainActivity">
 
     <TextView
@@ -30,5 +31,6 @@
         android:text="Start Game"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="425dp" />
+
 
 </RelativeLayout>
